@@ -1,4 +1,4 @@
-# deadqueuemv
+# Dead Queue Move
 
 Move all messages from one SQS queue, to another.
 
