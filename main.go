@@ -48,7 +48,7 @@ func main() {
 		WaitTimeSeconds:       &waitTime,
 		MessageAttributeNames: messageAttributeNames,
 	}
-  counter := 0
+  	counter := 0
 	// loop as long as there are messages on the queue
 	for {
 		resp, err := client.ReceiveMessage(rmin)
@@ -71,14 +71,14 @@ func main() {
 			go func(m *sqs.Message) {
 				defer wg.Done()
         
-        counter += 1
-        MessageGroupId := fmt.Sprintf("XXXXXX-%d", counter)
+        			counter += 1
+        			MessageGroupId := fmt.Sprintf("XXXXXX-%d", counter)
 				// write the message to the destination queue
 				smi := sqs.SendMessageInput{
 					MessageAttributes: m.MessageAttributes,
 					MessageBody:       m.Body,
 					QueueUrl:          dest,
-          MessageGroupId:    &MessageGroupId,
+          				MessageGroupId:    &MessageGroupId,
 				}
 
 				_, err := client.SendMessage(&smi)
