@@ -1,6 +1,6 @@
 # Dead Queue Move
 
-Move all messages from one SQS queue, to another.
+Move all messages from one SQS queue to another SQS queue.
 
 ## Installation
 
